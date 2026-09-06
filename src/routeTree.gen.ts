@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as FunRouteImport } from './routes/fun'
 import { Route as ResumeRouteImport } from './routes/resume'
+import { Route as WorkAtlasRouteImport } from './routes/work.atlas'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const ResumeRoute = ResumeRouteImport.update({
   path: '/resume',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkAtlasRoute = WorkAtlasRouteImport.update({
+  id: '/work/atlas',
+  path: '/work/atlas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fun': typeof FunRoute
   '/resume': typeof ResumeRoute
+  '/work/atlas': typeof WorkAtlasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fun': typeof FunRoute
   '/resume': typeof ResumeRoute
+  '/work/atlas': typeof WorkAtlasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/fun': typeof FunRoute
   '/resume': typeof ResumeRoute
+  '/work/atlas': typeof WorkAtlasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/fun' | '/resume'
+  fullPaths: '/' | '/about' | '/fun' | '/resume' | '/work/atlas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/fun' | '/resume'
-  id: '__root__' | '/' | '/about' | '/fun' | '/resume'
+  to: '/' | '/about' | '/fun' | '/resume' | '/work/atlas'
+  id: '__root__' | '/' | '/about' | '/fun' | '/resume' | '/work/atlas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   FunRoute: typeof FunRoute
   ResumeRoute: typeof ResumeRoute
+  WorkAtlasRoute: typeof WorkAtlasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResumeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work/atlas': {
+      id: '/work/atlas'
+      path: '/work/atlas'
+      fullPath: '/work/atlas'
+      preLoaderRoute: typeof WorkAtlasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   FunRoute: FunRoute,
   ResumeRoute: ResumeRoute,
+  WorkAtlasRoute: WorkAtlasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

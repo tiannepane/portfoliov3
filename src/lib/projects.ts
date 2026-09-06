@@ -1,4 +1,4 @@
-import workAtlas from "@/assets/work-atlas.jpg";
+import atlasAirbnb from "@/assets/work-atlas-airbnb.jpg.asset.json";
 import workBeacon from "@/assets/work-beacon.jpg";
 import workRelay from "@/assets/work-relay.jpg";
 import workPulse from "@/assets/work-pulse.jpg";
@@ -24,7 +24,7 @@ export const workProjects: Project[] = [
     tagline: "Roadmapping for teams that ship weekly",
     meta: "ATLAS · SHIPPED",
     year: "2026",
-    image: workAtlas,
+    image: atlasAirbnb.url,
     featured: true,
   },
   {

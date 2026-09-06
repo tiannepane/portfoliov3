@@ -28,8 +28,7 @@ export function ProjectCard({ project, delay = 0 }: { project: Project; delay?: 
       <article className="group">
         {project.slug ? (
           <Link
-            to="/work/$slug"
-            params={{ slug: project.slug }}
+            to="/work/atlas"
             aria-label={`View ${project.title} case study`}
           >
             {image}

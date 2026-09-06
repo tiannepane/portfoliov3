@@ -16,6 +16,7 @@ export interface Project {
   year: string;
   image: string;
   featured?: boolean;
+  slug?: string;
 }
 
 export const workProjects: Project[] = [
@@ -26,6 +27,7 @@ export const workProjects: Project[] = [
     year: "2026",
     image: atlasAirbnb.url,
     featured: true,
+    slug: "atlas",
   },
   {
     title: "Beacon",
